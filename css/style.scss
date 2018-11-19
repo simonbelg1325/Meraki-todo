@@ -1,0 +1,22 @@
+@import "./base/reset";
+@import "./base/fonts";
+@import "./base/variables";
+@import "./base/mixins";
+
+body {
+  margin: 0 auto;
+  font-family: roboto;
+}
+.todo-form {
+  width: 40%;
+  background-color: $grey;
+  .todo-form {
+    width: 100%;
+    padding: 13px 16px;
+    outline: none;
+    color: $green;
+    background-color: $green;
+    border: none;
+    border-radius: 4px;
+  }
+}
