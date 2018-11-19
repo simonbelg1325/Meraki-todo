@@ -7,16 +7,39 @@ body {
   margin: 0 auto;
   font-family: roboto;
 }
-.todo-form {
-  width: 40%;
+.todo-app {
+  margin: 0 auto;
+  width: 540px;
   background-color: $grey;
-  .todo-form {
+}
+.todo-form {
+  .todo-form__input {
     width: 100%;
     padding: 13px 16px;
     outline: none;
-    color: $green;
-    background-color: $green;
     border: none;
     border-radius: 4px;
+    position: relative;
+    border: 21px solid $green;
+    background-color: rgba($green, 0.3);
+    &::placeholder {
+      color: $white;
+    }
   }
+  .todo-form__button {
+    position: absolute;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    &::before {
+      content: "\e801";
+      font-family: icons;
+      right: 20px;
+      top: 20px;
+    }
+  }
+}
+
+ul li.todo-list__listitem {
+  list-style: none;
 }

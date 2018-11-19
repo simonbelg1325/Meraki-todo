@@ -5,15 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>To do list</title>
+    <link rel="stylesheet" href="./build/style.css" />
   </head>
   <body>
-    <div class="todo-form">
-      <input
-        placeholder="Enter an activity.."
-        type="text"
-        required=""
-        autofocus=""
-      />
+    <div class="todo-app">
+      <form class="todo-form">
+        <input
+          placeholder="Enter an activity.."
+          type="text"
+          required=""
+          autofocus=""
+          class="todo-form__input"
+        />
+        <a class="todo-form__button" href="#"></a>
+      </form>
+      <ul class="todo-list">
+        <li class="todo-list__listitem">Grocery shopping</li>
+        <li class="todo-list__listitem">cook spaghetti bolognese</li>
+        <li class="todo-list__listitem">hepl alexwith his homework</li>
+        <li class="todo-list__listitem">clean the car</li>
+        <li class="todo-list__listitem">pick up the kid from soccer</li>
+      </ul>
     </div>
   </body>
 </html>
