@@ -9,37 +9,83 @@ body {
 }
 .todo-app {
   margin: 0 auto;
-  width: 540px;
   background-color: $grey;
+  height: 100vh;
+  padding: 20px 16px;
+  width: 572px;
 }
 .todo-form {
+  position: relative;
+  border-radius: 20px;
+  width: 540px;
   .todo-form__input {
     width: 100%;
-    padding: 13px 16px;
+    padding: 22px 28px;
     outline: none;
-    border: none;
-    border-radius: 4px;
-    position: relative;
-    border: 21px solid $green;
+    border-radius: 34px;
+    color: #fff;
+    border: 20px solid $green;
     background-color: rgba($green, 0.3);
+    display: block;
     &::placeholder {
       color: $white;
+      border-radius: 10px;
     }
   }
   .todo-form__button {
-    position: absolute;
-    left: 20px;
-    width: 50px;
-    height: 50px;
     &::before {
+      position: absolute;
       content: "\e801";
       font-family: icons;
-      right: 20px;
-      top: 20px;
+      right: 11px;
+      top: 18px;
+      font-size: 22px;
+      border-radius: 55%;
+      padding: 22px;
+      background-color: white;
+      color: $green;
     }
   }
 }
-
-ul li.todo-list__listitem {
-  list-style: none;
+.todo-list {
+  position: relative;
+  .todo-list__listitem {
+    list-style: none;
+    display: flex;
+    border: 1px solid #eef3f6;
+    background-color: white;
+    width: 502px;
+    margin: 11px auto;
+    border-radius: 5px;
+    align-items: center;
+    padding: 13px 25px;
+    transition: 0.2s;
+    span {
+      margin-right: auto;
+    }
+  }
+  .todo-list__listitem--trash {
+    width: 24px;
+    height: 17px;
+    &::before {
+      position: absolute;
+      content: "\e800";
+      font-family: icons;
+      padding-right: 50px;
+      right: 50px;
+    }
+  }
+  .todo-list__listitem--done {
+    width: 32px;
+    height: 17px;
+    &::before {
+      position: absolute;
+      content: "\f06d";
+      font-family: icons;
+      border-left: 1px solid gray;
+      padding-left: 17px;
+      right: 43px;
+      color: $green;
+    }
+  }
 }
