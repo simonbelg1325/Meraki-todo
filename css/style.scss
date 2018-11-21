@@ -4,88 +4,168 @@
 @import "./base/mixins";
 
 body {
-  margin: 0 auto;
-  font-family: roboto;
+  background-color: $bg;
+  margin-top: 28px;
+  font-family: $primary-font;
 }
-.todo-app {
+.todoApp {
+  width: 75%;
+  max-width: 850px;
+  min-width: 300px;
   margin: 0 auto;
-  background-color: $grey;
-  height: 100vh;
-  padding: 20px 16px;
-  width: 572px;
-}
-.todo-form {
-  position: relative;
-  border-radius: 20px;
-  width: 540px;
-  .todo-form__input {
-    width: 100%;
-    padding: 22px 28px;
-    outline: none;
-    border-radius: 34px;
-    color: #fff;
-    border: 20px solid $green;
-    background-color: rgba($green, 0.3);
-    display: block;
-    &::placeholder {
+  &__form {
+    background-color: $green;
+    border-radius: 10px;
+    padding: 19px;
+    position: relative;
+    &__input {
+      display: block;
+      width: 100%;
+      border: 0;
+      height: 65px;
+      background-color: rgba($white, 0.3);
+      padding: 0 75px 0 26px;
       color: $white;
-      border-radius: 10px;
+      border-radius: 7px;
+      border-top-right-radius: 32.5px;
+      border-bottom-right-radius: 32.5px;
+      transition: all 300ms;
+      &--error {
+        background-color: $red;
+      }
+      &::placeholder {
+        color: $white;
+        font-size: 19px;
+        letter-spacing: 0.5px;
+      }
+    }
+    &__button {
+      position: absolute;
+      right: 19px;
+      top: 19px;
+      width: 65px;
+      height: 65px;
+      background-color: $white;
+      border-radius: 50%;
+      &::after {
+        position: absolute;
+        content: "\e802";
+        font-family: icons;
+        color: $green;
+        font-size: 28px;
+        top: 50%;
+        left: 50%;
+        margin-left: -8px;
+        margin-top: -14px;
+      }
     }
   }
-  .todo-form__button {
-    &::before {
-      position: absolute;
-      content: "\e801";
-      font-family: icons;
-      right: 11px;
-      top: 18px;
-      font-size: 22px;
-      border-radius: 55%;
-      padding: 22px;
-      background-color: white;
-      color: $green;
+  &__list {
+    padding: 19px;
+    &__item {
+      background-color: $white;
+      margin-bottom: 13px;
+      padding: 14px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      &--checked {
+        .todoApp__list__item__text {
+          text-decoration: line-through rgba($green, 0.85);
+          &::before {
+            content: ".";
+            color: $white;
+          }
+          &::after {
+            content: ".";
+            color: $white;
+          }
+        }
+        .icon--check::after {
+          background-color: $green;
+          color: $white;
+        }
+      }
+      &__text {
+        color: black;
+        max-height: 65px;
+        overflow: hidden;
+        padding-right: 20px;
+        flex-grow: 1; /* this text should always have max width */
+      }
     }
   }
 }
-.todo-list {
+
+.icon {
+  flex-shrink: 0; /* should never get smaller */
+  width: 40px;
+  height: 40px;
+  display: block;
+  margin-left: 24px;
   position: relative;
-  .todo-list__listitem {
-    list-style: none;
-    display: flex;
-    border: 1px solid #eef3f6;
-    background-color: white;
-    width: 502px;
-    margin: 11px auto;
-    border-radius: 5px;
-    align-items: center;
-    padding: 13px 25px;
-    transition: 0.2s;
-    span {
-      margin-right: auto;
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background-color: $grey;
+    left: -12px;
+    top: 0;
+    pointer-events: none;
+    margin: 0;
+  }
+  &::after {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    font-size: 28px;
+    color: $green;
+    font-family: icons;
+    margin-top: -14px;
+  }
+  &:first-of-type {
+    &::before {
+      display: none;
     }
   }
-  .todo-list__listitem--trash {
-    width: 24px;
-    height: 17px;
-    &::before {
-      position: absolute;
+  &--remove {
+    &::after {
       content: "\e800";
-      font-family: icons;
-      padding-right: 50px;
-      right: 50px;
+      margin-left: -12.25px;
+      color: $grey;
+    }
+    &:hover::after {
+      color: $red;
     }
   }
-  .todo-list__listitem--done {
-    width: 32px;
-    height: 17px;
-    &::before {
-      position: absolute;
-      content: "\f06d";
-      font-family: icons;
-      border-left: 1px solid gray;
-      padding-left: 17px;
-      right: 43px;
-      color: $green;
+
+  &--check {
+    &::after {
+      content: "\e801";
+      margin-left: -12.89px;
     }
+    &:hover::after {
+      background-color: $green;
+      color: $white;
+    }
+  }
+  &--circular {
+    &::after {
+      font-size: 13px;
+      border-radius: 50%;
+      border: 2px solid $green;
+      padding: 7px 9px 9px 7px;
+      margin-left: -15px;
+      margin-top: -16px;
+      width: 10px;
+      height: 10px;
+    }
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .todoApp {
+    width: 98%;
   }
 }

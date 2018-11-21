@@ -1,11 +1,11 @@
 @font-face {
   font-family: "icons";
-  src: url("./icons.eot?21620091");
-  src: url("./icons.eot?21620091#iefix") format("embedded-opentype"),
-    url("./icons.woff2?21620091") format("woff2"),
-    url("./icons.woff?21620091") format("woff"),
-    url("./icons.ttf?21620091") format("truetype"),
-    url("./icons.svg?21620091#icons") format("svg");
+  src: url("./icons");
+  src: url("../icons/icons.eot") format("embedded-opentype"),
+    url("..//icons/icons.woff2") format("woff2"),
+    url("../icons/icons.woff") format("woff"),
+    url("..//icons/icons.ttf") format("truetype"),
+    url("../icons/icons.svg") format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'icons';
-    src: url('../font/icons.svg?21620091#icons') format('svg');
+    src: url('../font/icons.svg?95846918#icons') format('svg');
   }
 }
 */
@@ -59,9 +59,9 @@
 .icon-trash:before {
   content: "\e800";
 } /* '' */
-.icon-plus:before {
+.icon-ok:before {
   content: "\e801";
 } /* '' */
-.icon-ok-circled:before {
-  content: "\f06d";
-} /* '' */
+.icon-plus:before {
+  content: "\e802";
+} /* '' */
