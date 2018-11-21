@@ -9,7 +9,7 @@ body {
   font-family: $primary-font;
 }
 .todoApp {
-  width: 75%;
+  width: 40%;
   max-width: 850px;
   min-width: 300px;
   margin: 0 auto;
@@ -73,7 +73,7 @@ body {
         .todoApp__list__item__text {
           text-decoration: line-through rgba($green, 0.85);
           &::before {
-            content: ".";
+            content: "-";
             color: $white;
           }
           &::after {
@@ -91,14 +91,13 @@ body {
         max-height: 65px;
         overflow: hidden;
         padding-right: 20px;
-        flex-grow: 1; /* this text should always have max width */
+        flex: 1 0 0;
       }
     }
   }
 }
 
 .icon {
-  flex-shrink: 0; /* should never get smaller */
   width: 40px;
   height: 40px;
   display: block;
